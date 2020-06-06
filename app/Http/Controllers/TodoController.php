@@ -27,7 +27,8 @@ class TodoController extends Controller
     {
         $todos = $this->todo->getByUserId(Auth::id());
         // $todos = $this->todo->all();
-        return view('todo.index',compact('todos'));
+        $user = \Auth::user();
+        return view('todo.index',compact('todos','user'));
     }
 
     /**
